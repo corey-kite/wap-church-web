@@ -46,8 +46,8 @@
       padding: 10px 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Pushes Logo left, Button right */
-      flex-wrap: nowrap; /* CRITICAL: Never wrap to new line */
+      justify-content: space-between;
+      flex-wrap: nowrap !important; /* Force single line */
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -60,7 +60,7 @@
       align-items: center;
       gap: 12px;
       text-decoration: none; 
-      flex-shrink: 0; /* Prevents logo from squishing */
+      flex-shrink: 0; 
     }
 
     .logo-group img {
@@ -77,18 +77,16 @@
       font-weight: 600;
       line-height: 1.2;
       color: #fff;
-      white-space: nowrap; /* Keeps text on one line */
+      white-space: nowrap;
     }
 
-    /* --- MOBILE SAFE MODE --- 
-       This hides the text on ANY screen smaller than a tablet (768px).
-       This guarantees the button stays on the same line as the logo image.
-    */
-    @media (max-width: 768px) {
+    /* --- MOBILE FIXES (Applied to screens smaller than 900px) --- */
+    @media (max-width: 900px) {
+        /* Hide the text completely on mobile to make room for the button */
         .logo-text { 
             display: none !important; 
         }
-        /* Slightly smaller logo image on phones */
+        /* Ensure the logo image stays a reasonable size */
         .logo-group img {
             height: 40px; 
         }
@@ -100,6 +98,7 @@
     /* --- NAVIGATION --- */
     nav {
         position: relative;
+        margin-left: auto; /* Push to the right */
     }
 
     .menu-toggle-btn {
@@ -130,11 +129,7 @@
         position: absolute;
         top: 120%; 
         right: 0;
-        
-        /* FORCE VISIBILITY */
-        background-color: #ffffff !important; 
-        background: #ffffff !important;
-        
+        background-color: #ffffff; /* White background */
         min-width: 200px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         border-radius: 8px;
@@ -148,19 +143,16 @@
         display: flex;
     }
 
-    /* FORCE LINKS TO BE DARK */
+    /* MENU LINKS - FORCED BLACK TEXT */
     .nav-dropdown a {
         padding: 12px 20px;
         text-decoration: none;
-        
-        /* High Contrast settings */
-        color: #111111 !important; 
-        background-color: transparent;
-        
+        color: #000000 !important; /* Force Black Text */
         font-weight: 600;
         font-size: 0.95rem;
         border-bottom: 1px solid #f1f5f9;
         display: block;
+        background: transparent;
     }
 
     .nav-dropdown a:last-child {
