@@ -30,7 +30,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5; /* Slightly tighter line height */
+      line-height: 1.5;
       color: var(--text);
       background: var(--bg);
     }
@@ -43,11 +43,12 @@
     header {
       background: linear-gradient(90deg, var(--blue), #0b2238);
       color: #fff;
-      padding: 8px 16px; /* Tighter padding */
+      padding: 8px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      /* FIX: Prevent wrapping so button stays on the right */
+      flex-wrap: nowrap; 
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -58,15 +59,19 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      /* Ensure logo group doesn't shrink too much */
+      flex-shrink: 1; 
+      min-width: 0; /* Allow text truncation if absolutely needed */
     }
 
     .logo-group img {
-      height: 45px; /* Slightly smaller logo */
+      height: 40px; /* Slightly smaller for mobile safety */
       width: auto;
       display: block;
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.35);
       background: #fff;
+      flex-shrink: 0;
     }
 
     .logo-text {
@@ -74,18 +79,29 @@
       font-weight: 600;
       line-height: 1.2;
       color: #fff;
+      white-space: nowrap;
+    }
+
+    /* Mobile Text Adjustment */
+    @media (max-width: 400px) {
+        .logo-text { font-size: 0.85rem; }
+        .logo-text span { display: none; } /* Hide 'Wapato, Washington' on very small screens if needed */
+        .logo-group img { height: 36px; }
+        header { padding: 8px 12px; }
     }
 
     /* --- MENU DROPDOWN --- */
     nav {
         position: relative;
+        flex-shrink: 0; /* Prevent menu button from squishing */
+        margin-left: 10px;
     }
 
     .menu-toggle-btn {
         background: rgba(255,255,255,0.15);
         color: #fff;
         border: 1px solid rgba(255,255,255,0.3);
-        padding: 6px 12px; /* Smaller button */
+        padding: 6px 12px;
         border-radius: 6px;
         font-weight: 600;
         cursor: pointer;
@@ -94,6 +110,7 @@
         gap: 6px;
         font-size: 0.9rem;
         transition: all 0.2s;
+        white-space: nowrap;
     }
 
     .menu-toggle-btn:hover {
@@ -105,15 +122,16 @@
     .nav-dropdown {
         display: none;
         position: absolute;
-        top: 120%;
+        top: 100%; /* Anchor directly below the nav container */
         right: 0;
+        margin-top: 8px; /* Small gap */
         background-color: white;
         min-width: 200px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         border-radius: 8px;
         padding: 6px 0;
         flex-direction: column;
-        z-index: 1001;
+        z-index: 2000;
         border: 1px solid #e2e8f0;
     }
 
@@ -128,13 +146,14 @@
     }
 
     .nav-dropdown a {
-        padding: 8px 16px; /* Tighter dropdown items */
+        padding: 10px 16px;
         text-decoration: none;
-        color: var(--text);
+        color: #222 !important; /* Force dark color to prevent 'empty' look */
         font-weight: 600;
         font-size: 0.9rem;
         border-bottom: 1px solid #f1f5f9;
         transition: background 0.2s;
+        display: block; /* Ensure it takes up space */
     }
 
     .nav-dropdown a:last-child {
@@ -143,14 +162,14 @@
 
     .nav-dropdown a:hover {
         background-color: #f0f9ff;
-        color: var(--blue);
+        color: var(--blue) !important;
     }
 
     /* --- MAIN CONTENT --- */
     main {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 20px 10px 30px; /* Reduced global padding */
+      padding: 20px 10px 30px;
     }
 
     /* --- HERO --- */
@@ -159,14 +178,14 @@
                   radial-gradient(circle at bottom right, rgba(20,54,90,0.3), transparent 55%),
                   #ffffff;
       border-radius: 12px;
-      padding: 25px 15px; /* Much tighter padding */
+      padding: 25px 15px;
       text-align: center;
-      margin-bottom: 20px; /* Less space below hero */
+      margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     .hero h1 {
-      font-size: 1.8rem; /* Slightly smaller title */
+      font-size: 1.8rem;
       margin-bottom: 8px;
       color: var(--blue);
     }
@@ -197,7 +216,7 @@
 
     .btn {
       display: inline-block;
-      padding: 8px 16px; /* Smaller buttons */
+      padding: 8px 16px;
       border-radius: 999px;
       font-size: 0.9rem;
       font-weight: 600;
@@ -226,10 +245,10 @@
 
     /* --- SECTIONS --- */
     .section {
-      margin-bottom: 20px; /* Reduced spacing between sections */
+      margin-bottom: 20px;
       background: #ffffff;
       border-radius: 10px;
-      padding: 20px 18px; /* Tighter inner padding */
+      padding: 20px 18px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       position: relative;
     }
@@ -276,7 +295,7 @@
     /* --- GRIDS & LAYOUTS --- */
     .info-grid {
       display: grid;
-      gap: 12px; /* Tighter gap */
+      gap: 12px;
     }
 
     @media (min-width: 750px) {
@@ -296,13 +315,13 @@
       width: 100%;
       border: 0;
       border-radius: 8px;
-      min-height: 250px; /* Reduced height */
+      min-height: 250px;
     }
 
     /* --- FORMS --- */
     form.prayer-form {
       display: grid;
-      gap: 10px; /* Tighter form gap */
+      gap: 10px;
       margin-top: 10px;
     }
 
@@ -339,13 +358,13 @@
     /* --- EVENTS --- */
     .events-list {
       display: grid;
-      gap: 10px; /* Tighter list gap */
+      gap: 10px;
       margin-top: 10px;
     }
 
     .event-card {
       border-radius: 6px;
-      padding: 12px; /* Reduced card padding */
+      padding: 12px;
       border-left: 4px solid var(--blue-light);
       background: #f8fafc;
     }
@@ -379,7 +398,7 @@
     /* --- MEDIA & GALLERY --- */
     .two-column {
       display: grid;
-      gap: 20px; /* Reduced column gap */
+      gap: 20px;
     }
 
     @media (min-width: 800px) {
@@ -398,7 +417,7 @@
 
     .gallery-grid {
       display: grid;
-      gap: 8px; /* Tighter image gap */
+      gap: 8px;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       margin-top: 12px;
     }
@@ -408,7 +427,7 @@
       display: block;
       border-radius: 6px;
       object-fit: cover;
-      height: 150px; /* Reduced image height */
+      height: 150px;
     }
 
     .gallery-caption {
@@ -425,7 +444,7 @@
       font-size: 0.85rem;
       color: #64748b;
       background: #e2e8f0;
-      margin-top: 25px; /* Reduced footer margin */
+      margin-top: 25px;
     }
 
     .designer-credit {
@@ -444,7 +463,8 @@
       <!-- Church logo -->
       <img src="https://i.imgur.com/ckWxMr0.png" alt="First Baptist Church Wapato logo">
       <div class="logo-text">
-        First Baptist Church<br>Wapato, Washington
+        First Baptist Church<br>
+        <span>Wapato, Washington</span>
       </div>
     </div>
   </div>
