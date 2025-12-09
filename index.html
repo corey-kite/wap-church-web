@@ -24,7 +24,7 @@
     body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: var(--text); background: var(--bg); }
     a { color: var(--blue-light); }
 
-    /* --- HEADER (THE FIX) --- */
+    /* --- HEADER --- */
     header {
       background: linear-gradient(90deg, var(--blue), #0b2238);
       color: #fff;
@@ -33,25 +33,20 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      
-      /* FLEXBOX LOCKDOWN */
       display: flex;
-      flex-direction: row;       /* Force horizontal row */
-      align-items: center;       /* Vertically center */
-      justify-content: space-between; 
-      flex-wrap: nowrap !important; /* CRITICAL: Never wrap */
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
     }
 
-    /* --- LOGO AREA --- */
     .logo-group {
       display: flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      
-      /* ALLOW SHRINKING */
       flex: 1 1 auto; 
-      min-width: 0; /* Critical for flexbox truncation */
+      min-width: 0;
       overflow: hidden; 
     }
 
@@ -60,7 +55,7 @@
       width: auto;
       border-radius: 6px;
       background: #fff;
-      flex-shrink: 0; /* Never shrink image */
+      flex-shrink: 0;
     }
 
     .logo-text {
@@ -68,18 +63,15 @@
       font-weight: 600;
       line-height: 1.2;
       color: #fff;
-      white-space: nowrap; /* Keep on one line */
+      white-space: nowrap;
     }
 
-    /* --- MOBILE TEXT HIDER (< 600px) --- */
     @media (max-width: 600px) {
-        .logo-text { display: none !important; } /* Hide text completely */
+        .logo-text { display: none; }
         .logo-group img { height: 40px; }
     }
 
-    /* --- NAVIGATION BUTTON --- */
     nav {
-        /* FORCE BUTTON TO STAY RIGHT & SIZED CORRECTLY */
         flex: 0 0 auto; 
         margin-left: 10px;
         position: relative;
@@ -100,15 +92,12 @@
         white-space: nowrap;
     }
 
-    /* --- DROPDOWN MENU (THE "BLANK" FIX) --- */
     .nav-dropdown {
         display: none; 
         position: absolute;
         top: 100%; 
         right: 0;
         margin-top: 5px;
-        
-        /* VISUALS */
         background-color: #ffffff; 
         min-width: 200px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.4);
@@ -118,30 +107,25 @@
     }
 
     .nav-dropdown.show {
-        display: block !important; /* Force show */
+        display: block;
     }
 
-    /* LINKS inside dropdown */
     .nav-dropdown a {
         display: block;
         padding: 14px 20px;
         text-decoration: none;
-        
-        /* FORCE HIGH CONTRAST */
-        color: #000000 !important;
+        color: #000000;
         font-weight: 700;
-        font-size: 16px; /* Larger text for phones */
-        
+        font-size: 16px;
         border-bottom: 1px solid #eee;
-        background: #fff; /* Ensure white bg */
+        background: #fff;
     }
 
     .nav-dropdown a:hover {
-        background-color: #f0f9ff !important;
-        color: var(--blue) !important;
+        background-color: #f0f9ff;
+        color: var(--blue);
     }
 
-    /* --- GENERAL LAYOUT --- */
     main { max-width: 1000px; margin: 0 auto; padding: 20px 10px 40px; }
     
     .hero {
@@ -162,7 +146,6 @@
     .section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
     .section h2 { font-size: 1.4rem; color: var(--blue); border-left: 4px solid var(--gold); padding-left: 10px; margin-bottom: 12px; }
     
-    /* Responsive Grids */
     .info-grid { display: grid; gap: 15px; }
     .map-grid { display: grid; gap: 15px; }
     .two-column { display: grid; gap: 20px; }
@@ -175,20 +158,16 @@
     .back-to-top-container { text-align: right; margin-top: 10px; border-top: 1px solid #f1f5f9; padding-top: 8px; }
     .back-to-top { font-size: 0.8rem; color: #666; text-decoration: none; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
 
-    /* Inputs */
     input, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 4px; }
     .form-row { margin-bottom: 10px; }
     
-    /* Footer */
     footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #666; background: #e2e8f0; margin-top: 20px; }
     
     .map-embed iframe { width: 100%; min-height: 250px; border: 0; border-radius: 8px; }
     
-    /* Facebook Frame */
     .facebook-embed-wrapper { display: flex; justify-content: center; overflow: hidden; background: #fff; border-radius: 8px; margin-bottom: 15px; }
     .facebook-embed-wrapper iframe { max-width: 100%; }
     
-    /* Images */
     .gallery-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
     .gallery-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; }
   </style>
@@ -196,7 +175,6 @@
 <body id="top">
 
 <header>
-  <!-- 1. LOGO CONTAINER -->
   <div class="logo-group">
     <img src="https://i.imgur.com/ckWxMr0.png" alt="Logo">
     <div class="logo-text">
@@ -205,7 +183,6 @@
     </div>
   </div>
 
-  <!-- 2. NAV CONTAINER (With fixed width behavior) -->
   <nav>
     <button class="menu-toggle-btn" onclick="toggleMenu()">
         Menu ▼
@@ -230,7 +207,10 @@
   <section class="hero">
     <div class="hero-tagline">Gather • Grow • Go</div>
     <h1>Welcome to First Baptist Church Wapato</h1>
-    <p>A Christ-centered church in the heart of the Yakima Valley.</p>
+    <p>
+      A Christ-centered church in the heart of the Yakima Valley, seeking to love God, 
+      love people, and share the hope of Jesus with our community.
+    </p>
     <div class="hero-buttons">
       <a href="#services" class="btn btn-gold">Plan Your Visit</a>
       <a href="#prayer" class="btn btn-outline">Request Prayer</a>
@@ -240,16 +220,34 @@
   <!-- ABOUT -->
   <section id="about" class="section">
     <h2>About Our Church</h2>
-    <p>First Baptist Church Wapato is a Bible-believing congregation committed to worship, discipleship, and service.</p>
+    <p>
+      First Baptist Church Wapato is a Bible-believing congregation committed to worship,
+      discipleship, and service. We gather to study God’s Word, encourage one another,
+      and reach out to our neighbors in the name of Jesus.
+    </p>
+    <p>
+      Whether you’ve been walking with Christ for many years or are just beginning to
+      ask questions about faith, you are welcome here. Our desire is to be a church
+      family where people can belong, grow, and serve together.
+    </p>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="section">
     <h2>Service Times</h2>
+    <p>
+      We would be honored to have you join us. Here are our regular weekly gatherings:
+    </p>
     <div class="info-grid">
-      <div><p><strong>Sunday Worship</strong></p><p>10:00 AM</p></div>
-      <div><p><strong>Midweek</strong></p><p>Scheduled as announced</p></div>
+      <div>
+        <p><strong>Sunday Worship Service</strong></p>
+        <p>10:00 AM – A time of singing, prayer, and preaching from God’s Word.</p>
+      </div>
+      <div>
+        <p><strong>Midweek / Other Gatherings</strong></p>
+        <p>Scheduled as announced for Bible studies, prayer meetings, and special events.</p>
+      </div>
     </div>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
@@ -259,8 +257,20 @@
     <h2>Meet the Pastor</h2>
     <div class="two-column">
       <div>
-        <p><strong>Pastor Richard Burson</strong> serves the Yakima Valley with a heart for preaching God’s Word.</p>
-        <p>Contact: <a href="mailto:richard.burson@outlook.com">richard.burson@outlook.com</a></p>
+        <p>
+          <strong>Pastor Richard Burson</strong> serves the congregation of First Baptist Church Wapato
+          with a heart for the Yakima Valley and a love for preaching God’s Word.
+        </p>
+        <p>
+          He is committed to teaching the Bible clearly, caring for the church family, and
+          equipping believers to live out their faith in everyday life.
+        </p>
+        <p>
+          If you’d like to connect with Pastor Richard for prayer, counsel, or questions
+          about the church, you can reach him at:
+          <br>
+          <a href="mailto:richard.burson@outlook.com">richard.burson@outlook.com</a>
+        </p>
       </div>
       <div class="gallery-grid">
          <img src="https://via.placeholder.com/600x400?text=Pastor+Photo" alt="Pastor">
@@ -272,6 +282,11 @@
   <!-- PRAYER -->
   <section id="prayer" class="section">
     <h2>Prayer Requests</h2>
+    <p>
+      We believe that prayer matters and that God hears us when we call on Him.
+      If you have a request, a praise report, or a burden on your heart, we would
+      be honored to pray with you and for you.
+    </p>
     <form class="prayer-form" action="mailto:richard.burson@outlook.com" method="post" enctype="text/plain">
       <div class="form-row">
         <input type="text" name="Name" placeholder="Your Name (Optional)">
@@ -282,57 +297,98 @@
       </div>
       <button type="submit" class="btn btn-gold">Send Request</button>
     </form>
+    <p style="font-size:0.8rem;color:#555;margin-top:6px;">
+      When you press “Send Request,” your default email program will open to send your message.
+    </p>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
   <!-- EVENTS -->
   <section id="events" class="section">
     <h2>Upcoming Events</h2>
+    <p>
+      Stay connected with what’s happening at First Baptist Church Wapato. Below is one
+      of our recent or upcoming events shared on Facebook. Check back often as new
+      gatherings, special services, and outreach opportunities are added.
+    </p>
     <div class="facebook-embed-wrapper">
         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Freachingcommuity%2Fposts%2Fpfbid02No8X1jVzr7YhD2jJgkDcxK1tz73GapXrL4RMV9JpeQTLAkYXjiyjp9KEvhsMa5qfl&show_text=true&width=500" width="500" height="485" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
+    <p style="font-size:0.9rem;color:#555;">
+      For more events and updates, you can also visit our Facebook page.
+    </p>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
   <!-- SERMONS -->
   <section id="sermons" class="section">
     <h2>Sermons</h2>
-    <p>Catch up on recent messages.</p>
-    <div class="sermon-media">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Sermon" allowfullscreen style="height:250px;"></iframe>
+    <p>
+      Couldn’t make it on Sunday, or want to revisit a message? This section can be
+      used to host recent sermons from Pastor Richard. As recordings become available,
+      they can be added here as videos or audio links.
+    </p>
+    <div class="sermon-media" style="margin-top:10px;">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Sermon" allowfullscreen style="width:100%;height:250px;border:0;border-radius:8px;"></iframe>
     </div>
+    <p style="font-size:0.9rem;color:#555;margin-top:6px;">
+      Replace <code>VIDEO_ID</code> in the code with your actual YouTube sermon link when you have it.
+    </p>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
   <!-- GIVE -->
   <section id="giving" class="section">
     <h2>Give Online</h2>
-    <p>Support our ministry securely online.</p>
+    <p>
+      Giving is an act of worship and a way to support the ministry of First Baptist
+      Church Wapato. Your generosity helps us continue sharing the gospel and serving
+      our community.
+    </p>
+    <p>
+      When an online giving option is ready (such as a secure giving portal or
+      PayPal link), this button can be connected directly to it.
+    </p>
     <a href="#" class="btn btn-gold">Give Now</a>
+    <p style="font-size:0.9rem;color:#555;margin-top:6px;">
+      You can also give in person during our services.
+    </p>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
   <!-- GALLERY -->
   <section id="gallery" class="section">
     <h2>Photos</h2>
+    <p>
+      Here are a few sample images that can be replaced with real photos from the
+      church—worship services, fellowship times, and outreach events in the Yakima Valley.
+    </p>
     <div class="gallery-grid">
-      <img src="https://via.placeholder.com/800x500?text=Sanctuary" alt="Church">
-      <img src="https://via.placeholder.com/800x500?text=Fellowship" alt="People">
-      <img src="https://via.placeholder.com/800x500?text=Outreach" alt="Event">
+      <img src="https://via.placeholder.com/800x500?text=Sanctuary" alt="Church sanctuary">
+      <img src="https://via.placeholder.com/800x500?text=Fellowship" alt="Fellowship time">
+      <img src="https://via.placeholder.com/800x500?text=Outreach" alt="Outreach event">
     </div>
+    <p style="font-size:0.9rem;color:#555;margin-top:6px;">
+      As you gather photos from church life, we can swap these placeholders for real images.
+    </p>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="section">
     <h2>Visit Us</h2>
+    <p>
+      We’d love to see you in person. Use the map to find our location, and feel free
+      to reach out if you have any questions before you visit.
+    </p>
     <div class="map-grid">
       <div class="map-embed">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2764.123456789012!2d-120.421!3d46.431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5498301234567890%3A0x1234567890abcdef!2s151%20W%20Wapato%20Rd%2C%20Wapato%2C%20WA%2098951!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
       <div>
-        <p><strong>151 W Wapato Rd, Wapato, WA 98951</strong></p>
-        <p>(509) 877-6373</p>
+        <p><strong>Address:</strong><br>151 W Wapato Rd<br>Wapato, WA 98951</p>
+        <p><strong>Phone:</strong> (509) 877-6373</p>
+        <p><strong>Email:</strong> <a href="mailto:richard.burson@outlook.com">richard.burson@outlook.com</a></p>
       </div>
     </div>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
@@ -353,7 +409,7 @@
     window.onclick = function(e) {
         if (!e.target.matches('.menu-toggle-btn')) {
             var d = document.getElementById("navDropdown");
-            if (d.classList.contains('show')) d.classList.remove('show');
+            if (d && d.classList.contains('show')) d.classList.remove('show');
         }
     }
 </script>
