@@ -43,35 +43,37 @@
     header {
       background: linear-gradient(90deg, var(--blue), #0b2238);
       color: #fff;
-      padding: 8px 16px;
+      padding: 10px 16px;
+      /* FLEX SETTINGS FOR MOBILE LAYOUT */
       display: flex;
       align-items: center;
       justify-content: space-between;
-      /* FIX: Prevent wrapping so button stays on the right */
-      flex-wrap: nowrap; 
+      flex-wrap: nowrap; /* Forces logo and button to stay on one line */
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
+    /* LOGO AREA */
     .logo-group {
       display: flex;
       align-items: center;
       gap: 10px;
-      /* Ensure logo group doesn't shrink too much */
-      flex-shrink: 1; 
-      min-width: 0; /* Allow text truncation if absolutely needed */
+      text-decoration: none; /* In case it's a link */
+      flex-shrink: 1; /* Allow to shrink if needed */
+      min-width: 0; /* Allow truncation */
+      margin-right: 10px;
     }
 
     .logo-group img {
-      height: 40px; /* Slightly smaller for mobile safety */
+      height: 40px;
       width: auto;
       display: block;
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.35);
       background: #fff;
-      flex-shrink: 0;
+      flex-shrink: 0; /* Don't squish the image */
     }
 
     .logo-text {
@@ -82,19 +84,19 @@
       white-space: nowrap;
     }
 
-    /* Mobile Text Adjustment */
-    @media (max-width: 400px) {
-        .logo-text { font-size: 0.85rem; }
-        .logo-text span { display: none; } /* Hide 'Wapato, Washington' on very small screens if needed */
-        .logo-group img { height: 36px; }
+    /* MOBILE TWEAKS FOR LOGO */
+    @media (max-width: 480px) {
+        .logo-text { font-size: 0.9rem; }
+        /* Hide the city/state on very small phones to prevent breaking */
+        .logo-text span { display: none; } 
+        .logo-group img { height: 32px; }
         header { padding: 8px 12px; }
     }
 
-    /* --- MENU DROPDOWN --- */
+    /* --- NAVIGATION --- */
     nav {
         position: relative;
-        flex-shrink: 0; /* Prevent menu button from squishing */
-        margin-left: 10px;
+        flex-shrink: 0; /* Prevent button from shrinking */
     }
 
     .menu-toggle-btn {
@@ -119,20 +121,21 @@
         border-color: var(--gold);
     }
 
+    /* DROPDOWN MENU */
     .nav-dropdown {
-        display: none;
+        display: none; /* Hidden by default */
         position: absolute;
-        top: 100%; /* Anchor directly below the nav container */
+        top: 100%; /* Directly below button */
         right: 0;
-        margin-top: 8px; /* Small gap */
-        background-color: white;
+        margin-top: 8px;
+        background-color: #ffffff; /* Explicit white background */
         min-width: 200px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Stronger shadow */
         border-radius: 8px;
         padding: 6px 0;
         flex-direction: column;
         z-index: 2000;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #d1d5db;
     }
 
     .nav-dropdown.show {
@@ -146,14 +149,14 @@
     }
 
     .nav-dropdown a {
-        padding: 10px 16px;
+        padding: 12px 16px;
         text-decoration: none;
-        color: #222 !important; /* Force dark color to prevent 'empty' look */
+        color: #000000 !important; /* FORCE BLACK TEXT */
         font-weight: 600;
-        font-size: 0.9rem;
-        border-bottom: 1px solid #f1f5f9;
-        transition: background 0.2s;
-        display: block; /* Ensure it takes up space */
+        font-size: 0.95rem;
+        border-bottom: 1px solid #f3f4f6;
+        display: block;
+        background-color: #ffffff; /* Ensure background is white */
     }
 
     .nav-dropdown a:last-child {
@@ -458,14 +461,13 @@
 <body id="top">
 
 <header>
-  <div>
-    <div class="logo-group">
-      <!-- Church logo -->
-      <img src="https://i.imgur.com/ckWxMr0.png" alt="First Baptist Church Wapato logo">
-      <div class="logo-text">
-        First Baptist Church<br>
-        <span>Wapato, Washington</span>
-      </div>
+  <!-- REMOVED THE WRAPPER DIV HERE -->
+  <div class="logo-group">
+    <!-- Church logo -->
+    <img src="https://i.imgur.com/ckWxMr0.png" alt="First Baptist Church Wapato logo">
+    <div class="logo-text">
+      First Baptist Church<br>
+      <span>Wapato, Washington</span>
     </div>
   </div>
 
