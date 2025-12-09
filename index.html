@@ -46,8 +46,8 @@
       padding: 10px 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap; /* Forces logo and button to stay on one line */
+      justify-content: space-between; /* Pushes Logo left, Button right */
+      flex-wrap: nowrap; /* CRITICAL: Never wrap to new line */
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -60,9 +60,7 @@
       align-items: center;
       gap: 12px;
       text-decoration: none; 
-      flex-shrink: 1; 
-      min-width: 0;
-      margin-right: auto; /* Pushes everything else to the right */
+      flex-shrink: 0; /* Prevents logo from squishing */
     }
 
     .logo-group img {
@@ -72,7 +70,6 @@
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.35);
       background: #fff;
-      flex-shrink: 0;
     }
 
     .logo-text {
@@ -80,16 +77,20 @@
       font-weight: 600;
       line-height: 1.2;
       color: #fff;
-      /* Removed white-space: nowrap to allow wrapping if needed */
+      white-space: nowrap; /* Keeps text on one line */
     }
 
-    /* MOBILE TWEAKS: Aggressively hide text on all mobile devices (< 600px) */
-    @media (max-width: 600px) {
+    /* --- MOBILE SAFE MODE --- 
+       This hides the text on ANY screen smaller than a tablet (768px).
+       This guarantees the button stays on the same line as the logo image.
+    */
+    @media (max-width: 768px) {
         .logo-text { 
-            display: none !important; /* Hide text completely on mobile */ 
+            display: none !important; 
         }
+        /* Slightly smaller logo image on phones */
         .logo-group img {
-            height: 40px; /* Adjust logo size */
+            height: 40px; 
         }
         header { 
             padding: 8px 12px; 
@@ -99,8 +100,6 @@
     /* --- NAVIGATION --- */
     nav {
         position: relative;
-        flex-shrink: 0; 
-        margin-left: 10px;
     }
 
     .menu-toggle-btn {
@@ -125,14 +124,18 @@
         border-color: var(--gold);
     }
 
-    /* DROPDOWN MENU */
+    /* --- DROPDOWN MENU FIX --- */
     .nav-dropdown {
         display: none; 
         position: absolute;
         top: 120%; 
         right: 0;
-        background-color: #ffffff; /* FORCE WHITE BACKGROUND */
-        min-width: 220px;
+        
+        /* FORCE VISIBILITY */
+        background-color: #ffffff !important; 
+        background: #ffffff !important;
+        
+        min-width: 200px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         border-radius: 8px;
         padding: 8px 0;
@@ -145,16 +148,19 @@
         display: flex;
     }
 
+    /* FORCE LINKS TO BE DARK */
     .nav-dropdown a {
         padding: 12px 20px;
         text-decoration: none;
-        /* FORCE BLACK TEXT COLOR */
-        color: #000000 !important; 
+        
+        /* High Contrast settings */
+        color: #111111 !important; 
+        background-color: transparent;
+        
         font-weight: 600;
         font-size: 0.95rem;
         border-bottom: 1px solid #f1f5f9;
         display: block;
-        background: #fff; /* Ensure item bg is white */
     }
 
     .nav-dropdown a:last-child {
