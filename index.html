@@ -9,14 +9,12 @@
   <link rel="icon" type="image/png" href="https://i.imgur.com/ckWxMr0.png">
 
   <style>
-    /* --- CSS RESET & VARIABLES --- */
     :root {
       --blue: #14365a;
       --blue-light: #1f497a;
       --gold: #f5c542;
       --bg: #f4f4f7;
       --text: #222;
-      --white: #ffffff;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,7 +22,6 @@
     body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: var(--text); background: var(--bg); }
     a { color: var(--blue-light); }
 
-    /* --- HEADER --- */
     header {
       background: linear-gradient(90deg, var(--blue), #0b2238);
       color: #fff;
@@ -45,9 +42,9 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      flex: 1 1 auto; 
+      flex: 1 1 auto;
       min-width: 0;
-      overflow: hidden; 
+      overflow: hidden;
     }
 
     .logo-group img {
@@ -67,70 +64,73 @@
     }
 
     @media (max-width: 600px) {
-        .logo-text { display: none; }
-        .logo-group img { height: 40px; }
+      .logo-text { display: none; }
+      .logo-group img { height: 40px; }
     }
 
     nav {
-        flex: 0 0 auto; 
-        margin-left: 10px;
-        position: relative;
+      flex: 0 0 auto;
+      margin-left: 10px;
+      position: relative;
     }
 
     .menu-toggle-btn {
-        background: rgba(255,255,255,0.15);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.3);
-        padding: 8px 14px;
-        border-radius: 6px;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.9rem;
-        white-space: nowrap;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
     }
 
     .nav-dropdown {
-        display: none; 
-        position: absolute;
-        top: 100%; 
-        right: 0;
-        margin-top: 5px;
-        background-color: #ffffff; 
-        min-width: 200px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-        border-radius: 8px;
-        z-index: 9999;
-        border: 1px solid #ddd;
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 5px;
+      background-color: #ffffff;
+      min-width: 200px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      border-radius: 8px;
+      z-index: 9999;
+      border: 1px solid #ddd;
     }
 
-    .nav-dropdown.show {
-        display: block;
-    }
+    .nav-dropdown.show { display: block; }
 
     .nav-dropdown a {
-        display: block;
-        padding: 14px 20px;
-        text-decoration: none;
-        color: #000000;
-        font-weight: 700;
-        font-size: 16px;
-        border-bottom: 1px solid #eee;
-        background: #fff;
+      display: block;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 700;
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
     }
 
     .nav-dropdown a:hover {
-        background-color: #f0f9ff;
-        color: var(--blue);
+      background-color: #f0f9ff;
+      color: var(--blue);
     }
 
     main { max-width: 1000px; margin: 0 auto; padding: 20px 10px 40px; }
-    
+
     .hero {
-      background: radial-gradient(circle at top left, rgba(245,197,66,0.3), transparent 50%), radial-gradient(circle at bottom right, rgba(20,54,90,0.3), transparent 55%), #ffffff;
-      border-radius: 12px; padding: 30px 15px; text-align: center; margin-bottom: 20px;
+      background: radial-gradient(circle at top left, rgba(245,197,66,0.3), transparent 50%),
+                  radial-gradient(circle at bottom right, rgba(20,54,90,0.3), transparent 55%),
+                  #ffffff;
+      border-radius: 12px;
+      padding: 30px 15px;
+      text-align: center;
+      margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
     .hero h1 { font-size: 1.8rem; margin-bottom: 8px; color: var(--blue); }
@@ -145,14 +145,14 @@
 
     .section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
     .section h2 { font-size: 1.4rem; color: var(--blue); border-left: 4px solid var(--gold); padding-left: 10px; margin-bottom: 12px; }
-    
+
     .info-grid { display: grid; gap: 15px; }
     .map-grid { display: grid; gap: 15px; }
     .two-column { display: grid; gap: 20px; }
     @media (min-width: 768px) {
-        .info-grid { grid-template-columns: 1fr 1fr; }
-        .map-grid { grid-template-columns: 1.5fr 1fr; }
-        .two-column { grid-template-columns: 1.2fr 1fr; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .map-grid { grid-template-columns: 1.5fr 1fr; }
+      .two-column { grid-template-columns: 1.2fr 1fr; }
     }
 
     .back-to-top-container { text-align: right; margin-top: 10px; border-top: 1px solid #f1f5f9; padding-top: 8px; }
@@ -160,14 +160,14 @@
 
     input, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 4px; }
     .form-row { margin-bottom: 10px; }
-    
+
     footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #666; background: #e2e8f0; margin-top: 20px; }
-    
+
     .map-embed iframe { width: 100%; min-height: 250px; border: 0; border-radius: 8px; }
-    
+
     .facebook-embed-wrapper { display: flex; justify-content: center; overflow: hidden; background: #fff; border-radius: 8px; margin-bottom: 15px; }
     .facebook-embed-wrapper iframe { max-width: 100%; }
-    
+
     .gallery-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
     .gallery-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; }
   </style>
@@ -185,30 +185,29 @@
 
   <nav>
     <button class="menu-toggle-btn" onclick="toggleMenu()">
-        Menu ▼
+      Menu ▼
     </button>
 
     <div id="navDropdown" class="nav-dropdown">
-        <a href="#about" onclick="toggleMenu()">About</a>
-        <a href="#services" onclick="toggleMenu()">Services</a>
-        <a href="#prayer" onclick="toggleMenu()">Prayer</a>
-        <a href="#events" onclick="toggleMenu()">Events</a>
-        <a href="#sermons" onclick="toggleMenu()">Sermons</a>
-        <a href="#pastor" onclick="toggleMenu()">Pastor</a>
-        <a href="#giving" onclick="toggleMenu()">Give</a>
-        <a href="#gallery" onclick="toggleMenu()">Photos</a>
-        <a href="#contact" onclick="toggleMenu()">Visit</a>
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#prayer" onclick="toggleMenu()">Prayer</a>
+      <a href="#events" onclick="toggleMenu()">Events</a>
+      <a href="#sermons" onclick="toggleMenu()">Sermons</a>
+      <a href="#pastor" onclick="toggleMenu()">Pastor</a>
+      <a href="#giving" onclick="toggleMenu()">Give</a>
+      <a href="#gallery" onclick="toggleMenu()">Photos</a>
+      <a href="#contact" onclick="toggleMenu()">Visit</a>
     </div>
   </nav>
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-tagline">Gather • Grow • Go</div>
     <h1>Welcome to First Baptist Church Wapato</h1>
     <p>
-      A Christ-centered church in the heart of the Yakima Valley, seeking to love God, 
+      A Christ-centered church in the heart of the Yakima Valley, seeking to love God,
       love people, and share the hope of Jesus with our community.
     </p>
     <div class="hero-buttons">
@@ -217,42 +216,61 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
+    <section id="about" class="section">
     <h2>About Our Church</h2>
+    <p><strong>MORE THAN A CHURCH</strong></p>
     <p>
-      First Baptist Church Wapato is a Bible-believing congregation committed to worship,
-      discipleship, and service. We gather to study God’s Word, encourage one another,
-      and reach out to our neighbors in the name of Jesus.
+      First Baptist Church Wapato, a congregation in Wapato, offers members — and visitors —
+      a chance to become part of something greater: to grow in their love of God and for one
+      another within our beautiful community.
     </p>
     <p>
-      Whether you’ve been walking with Christ for many years or are just beginning to
-      ask questions about faith, you are welcome here. Our desire is to be a church
-      family where people can belong, grow, and serve together.
+      We are rooted in the stories of the Bible and believe worship is something that can be
+      expressed in everything we do. Our philosophy is founded on the life and teachings of
+      Jesus Christ. No matter who you are, there’s a special place for you at our church.
+      Get in touch today or come and visit us in person.
     </p>
+
+    <h3 style="margin-top:16px; color: var(--blue);">Mission Statement</h3>
+    <p>
+      We exist to exalt Jesus Christ as Lord by seeking, teaching and caring for the people in
+      our Church, Community and the World.
+    </p>
+
+    <p style="margin-top:10px; font-style:italic; font-size:0.95rem; color:#444;">
+      “This church is the pillar and stable foundation of truth, because in it soundeth the
+      voice of the Son of God” ~John Philpot
+    </p>
+
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services" class="section">
     <h2>Service Times</h2>
     <p>
-      We would be honored to have you join us. Here are our regular weekly gatherings:
+      We would be honored to have you join us. Here are our weekly gatherings:
     </p>
+
     <div class="info-grid">
       <div>
-        <p><strong>Sunday Worship Service</strong></p>
-        <p>10:00 AM – A time of singing, prayer, and preaching from God’s Word.</p>
+        <p><strong>SUNDAY</strong></p>
+        <p>10:00 AM — Bible Study for All Ages</p>
+        <p>11:00 AM — Worship Services</p>
+        <p>5:30 PM — Bible Study</p>
       </div>
+
       <div>
-        <p><strong>Midweek / Other Gatherings</strong></p>
-        <p>Scheduled as announced for Bible studies, prayer meetings, and special events.</p>
+        <p><strong>TUESDAY</strong></p>
+        <p>8:30 AM — Men's Prayer Time</p>
+
+        <p><strong>WEDNESDAY</strong></p>
+        <p>10:30 AM — Emerald Care Live Stream</p>
       </div>
     </div>
+
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- PASTOR -->
   <section id="pastor" class="section">
     <h2>Meet the Pastor</h2>
     <div class="two-column">
@@ -267,19 +285,17 @@
         </p>
         <p>
           If you’d like to connect with Pastor Richard for prayer, counsel, or questions
-          about the church, you can reach him at:
-          <br>
+          about the church, you can reach him at:<br>
           <a href="mailto:richard.burson@outlook.com">richard.burson@outlook.com</a>
         </p>
       </div>
       <div class="gallery-grid">
-         <img src="https://via.placeholder.com/600x400?text=Pastor+Photo" alt="Pastor">
+        <img src="https://via.placeholder.com/600x400?text=Pastor+Photo" alt="Pastor">
       </div>
     </div>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- PRAYER -->
   <section id="prayer" class="section">
     <h2>Prayer Requests</h2>
     <p>
@@ -303,7 +319,6 @@
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- EVENTS -->
   <section id="events" class="section">
     <h2>Upcoming Events</h2>
     <p>
@@ -312,7 +327,7 @@
       gatherings, special services, and outreach opportunities are added.
     </p>
     <div class="facebook-embed-wrapper">
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Freachingcommuity%2Fposts%2Fpfbid02No8X1jVzr7YhD2jJgkDcxK1tz73GapXrL4RMV9JpeQTLAkYXjiyjp9KEvhsMa5qfl&show_text=true&width=500" width="500" height="485" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Freachingcommuity%2Fposts%2Fpfbid02No8X1jVzr7YhD2jJgkDcxK1tz73GapXrL4RMV9JpeQTLAkYXjiyjp9KEvhsMa5qfl&show_text=true&width=500" width="500" height="485" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
     <p style="font-size:0.9rem;color:#555;">
       For more events and updates, you can also visit our Facebook page.
@@ -320,7 +335,6 @@
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- SERMONS -->
   <section id="sermons" class="section">
     <h2>Sermons</h2>
     <p>
@@ -329,34 +343,55 @@
       they can be added here as videos or audio links.
     </p>
     <div class="sermon-media" style="margin-top:10px;">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Sermon" allowfullscreen style="width:100%;height:250px;border:0;border-radius:8px;"></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Sermon" allowfullscreen style="width:100%;height:250px;border:0;border-radius:8px;"></iframe>
     </div>
     <p style="font-size:0.9rem;color:#555;margin-top:6px;">
-      Replace <code>VIDEO_ID</code> in the code with your actual YouTube sermon link when you have it.
+      Replace <code>VIDEO_ID</code> with your actual YouTube sermon link when you have it.
     </p>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- GIVE -->
-  <section id="giving" class="section">
+    <section id="giving" class="section">
     <h2>Give Online</h2>
     <p>
-      Giving is an act of worship and a way to support the ministry of First Baptist
-      Church Wapato. Your generosity helps us continue sharing the gospel and serving
-      our community.
+      First Baptist Church Wapato is a generous community. Please give as much as you are able
+      to help us with our mission of transforming lives in Wapato and beyond. You can easily
+      donate online or contribute during each of our services.
     </p>
     <p>
-      When an online giving option is ready (such as a secure giving portal or
-      PayPal link), this button can be connected directly to it.
+      “The world of the generous gets larger and larger; the world of the stingy gets smaller
+      and smaller” (Proverbs 11:24). Thank you for your faithful support.
     </p>
-    <a href="#" class="btn btn-gold">Give Now</a>
-    <p style="font-size:0.9rem;color:#555;margin-top:6px;">
-      You can also give in person during our services.
-    </p>
+
+    <div class="info-grid" style="margin-top:12px;">
+      <div>
+        <h3 style="margin-bottom:4px;">Give Securely Online</h3>
+        <p style="font-size:0.95rem;">
+          Use our online giving platform to make a one-time gift or set up recurring support.
+          Your gift is processed securely through Tithe.ly.
+        </p>
+        <a href="https://tithe.ly/give_new/www/#/tithely/give-one-time/2506221" target="_blank" rel="noopener" class="btn btn-gold" style="margin-top:8px;display:inline-block;">
+          Give Online via Tithe.ly
+        </a>
+        <p style="font-size:0.85rem;color:#555;margin-top:6px;">
+          Learn more about how Tithe.ly works:
+          <a href="https://www.youtube.com/watch?v=WEwzoVSgVsc" target="_blank" rel="noopener">Watch overview video</a>.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom:4px;">Other Ways to Give</h3>
+        <ul style="font-size:0.95rem;margin-left:18px;">
+          <li>Place tithes and offerings in the plate during Sunday worship.</li>
+          <li>Mail a check to the church office.</li>
+          <li>Contact the church if you have questions about giving options.</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery" class="section">
     <h2>Photos</h2>
     <p>
@@ -374,21 +409,23 @@
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <h2>Visit Us</h2>
+    <section id="contact" class="section">
+    <h2>Contact Us</h2>
     <p>
-      We’d love to see you in person. Use the map to find our location, and feel free
-      to reach out if you have any questions before you visit.
+      We would love to hear from you, answer your questions, and help you plan your visit.
+      Reach out by phone, email, or come see us in person.
     </p>
     <div class="map-grid">
       <div class="map-embed">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2764.123456789012!2d-120.421!3d46.431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5498301234567890%3A0x1234567890abcdef!2s151%20W%20Wapato%20Rd%2C%20Wapato%2C%20WA%2098951!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" allowfullscreen></iframe>
       </div>
       <div>
-        <p><strong>Address:</strong><br>151 W Wapato Rd<br>Wapato, WA 98951</p>
-        <p><strong>Phone:</strong> (509) 877-6373</p>
-        <p><strong>Email:</strong> <a href="mailto:richard.burson@outlook.com">richard.burson@outlook.com</a></p>
+        <p><strong>Phone:</strong><br>(509) 877-6373<br>Pastor's cell: 503-819-8663</p>
+        <p><strong>Address:</strong><br>151 W Wapato Rd<br>Wapato, WA 98951, USA</p>
+        <p><strong>Email:</strong><br>
+          <a href="mailto:events@firstbaptistchurchwapato.com">events@firstbaptistchurchwapato.com</a><br>
+          <a href="mailto:richard.burson@outlook.com">richard.burson@outlook.com</a>
+        </p>
       </div>
     </div>
     <div class="back-to-top-container"><a href="#top" class="back-to-top">↑ Top</a></div>
@@ -397,21 +434,21 @@
 
 <footer>
   &copy; <span id="year"></span> First Baptist Church Wapato.<br>
-  <span class="designer-credit">Designed by Corey Kite & Gemini</span>
+  <span class="designer-credit">Designed by Corey Kite &amp; Gemini</span>
 </footer>
 
 <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    function toggleMenu() {
-        var menu = document.getElementById("navDropdown");
-        menu.classList.toggle("show");
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function toggleMenu() {
+    var menu = document.getElementById("navDropdown");
+    if (menu) menu.classList.toggle("show");
+  }
+  window.onclick = function(e) {
+    if (!e.target.matches('.menu-toggle-btn')) {
+      var d = document.getElementById("navDropdown");
+      if (d && d.classList.contains('show')) d.classList.remove('show');
     }
-    window.onclick = function(e) {
-        if (!e.target.matches('.menu-toggle-btn')) {
-            var d = document.getElementById("navDropdown");
-            if (d && d.classList.contains('show')) d.classList.remove('show');
-        }
-    }
+  };
 </script>
 
 </body>
